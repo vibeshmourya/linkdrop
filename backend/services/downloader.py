@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Main Download Coordinator
+LinkDrop - Main Download Coordinator
 """
 import uuid
 import time

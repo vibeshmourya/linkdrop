@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Audio Downloader Service
+LinkDrop - Audio Downloader Service
 """
 import shutil
 import logging

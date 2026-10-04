@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Configuration
+LinkDrop - Configuration
 """
 import os
 from pathlib import Path

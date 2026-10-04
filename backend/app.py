@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - FastAPI Application
+LinkDrop - FastAPI Application
 """
 import os
 import sys
@@ -37,14 +37,14 @@ logger = logging.getLogger("app")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("Universal Media Downloader backend starting up...")
+    logger.info("LinkDrop backend starting up...")
     cleanup_expired_files()
     yield
-    logger.info("Universal Media Downloader backend shutting down...")
+    logger.info("LinkDrop backend shutting down...")
 
 app = FastAPI(
-    title="Universal Media Downloader",
-    description="Clean, secure, and fast media downloader engine",
+    title="LinkDrop",
+    description="Simple link-based media downloader",
     version="1.0.0",
     lifespan=lifespan
 )

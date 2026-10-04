@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Automated Test Suite
+LinkDrop - Automated Test Suite
 """
 import sys
 from pathlib import Path

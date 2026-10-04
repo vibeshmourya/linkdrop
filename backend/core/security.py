@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Security & SSRF Protection
+LinkDrop - Security & SSRF Protection
 """
 import ipaddress
 import re

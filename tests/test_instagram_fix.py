@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Instagram Media Fix Verification Test
+LinkDrop - Instagram Media Fix Verification Test
 """
 import time
 import requests

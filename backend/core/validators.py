@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Input Validators
+LinkDrop - Input Validators
 """
 from typing import Tuple, Optional
 from core.security import validate_url_security

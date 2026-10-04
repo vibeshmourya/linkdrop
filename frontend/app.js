@@ -1,5 +1,5 @@
 /**
- * Universal Media Downloader - Frontend Client Logic
+ * LinkDrop - Frontend Client Logic
  */
 document.addEventListener("DOMContentLoaded", () => {
   // Elements

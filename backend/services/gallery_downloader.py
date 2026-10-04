@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Gallery & Carousel Downloader Service
+LinkDrop - Gallery & Carousel Downloader Service
 """
 import logging
 import zipfile

@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Source Detector
+LinkDrop - Source Detector
 """
 from urllib.parse import urlparse
 from typing import Dict, Any

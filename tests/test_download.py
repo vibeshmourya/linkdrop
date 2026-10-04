@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Download Pipeline Test
+LinkDrop - Download Pipeline Test
 """
 import sys
 import time

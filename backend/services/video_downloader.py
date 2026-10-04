@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Video Downloader Service
+LinkDrop - Video Downloader Service
 """
 import os
 import shutil

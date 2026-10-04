@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Upgraded Dedicated Instagram Extractor
+LinkDrop - Upgraded Dedicated Instagram Extractor
 Supports: Posts (Images, Videos, Carousels), Reels, Stories, Public Profile Media.
 Strictly link-only. No login, no passwords, no cookies, no auth tokens.
 """

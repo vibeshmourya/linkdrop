@@ -1,8 +1,10 @@
-# Universal Media Downloader
+# LinkDrop
 
-A clean, modern, and high-performance **Universal Media Downloader** built from scratch with Python (FastAPI), `yt-dlp`, `FFmpeg`, and lightweight Vanilla HTML/CSS/JavaScript.
+> Paste a link. Download the media.
 
-Designed with a single universal workflow: paste a URL, analyze available streams, choose format/quality, and download directly without complicated accounts, history bloat, or enterprise dashboards.
+LinkDrop is a simple and powerful link-based media downloader for publicly accessible videos, audio, images, reels, posts, stories, galleries, and other supported media.
+
+Designed with a single clean workflow: paste a URL, analyze available streams, choose format/quality, and download directly without complicated accounts, history bloat, or enterprise dashboards.
 
 ---
 
@@ -30,7 +32,7 @@ DIRECT FILE DELIVERY & AUTOMATIC CLEANUP
 
 ## Key Features
 
-- **Single Universal Input**: Automatically identifies YouTube, Instagram, Facebook, TikTok, X (Twitter), WhatsApp status links, and direct media files.
+- **Single Link Input**: Automatically identifies YouTube, Instagram, Facebook, TikTok, X (Twitter), WhatsApp status links, and direct media files.
 - **Clean Format & Quality Options**:
   - **Video**: 4K, 2K, 1080p, 720p, 480p, 360p with estimated sizes and automatic audio remuxing to MP4.
   - **Audio**: High-Quality MP3 (320kbps), M4A (AAC), or lossless WAV extraction powered by FFmpeg.
@@ -48,7 +50,7 @@ DIRECT FILE DELIVERY & AUTOMATIC CLEANUP
 ## Project Structure
 
 ```text
-universal-media-downloader/
+linkdrop/
 │
 ├── backend/
 │   ├── app.py                      # FastAPI application & REST endpoints
@@ -102,7 +104,7 @@ ffmpeg -version
 
 ### 2. Setup Virtual Environment
 ```bash
-cd universal-media-downloader
+cd linkdrop
 python -m venv venv
 
 # On Windows (PowerShell):

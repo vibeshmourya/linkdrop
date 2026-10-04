@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Temporary File Cleanup
+LinkDrop - Temporary File Cleanup
 """
 import os
 import shutil

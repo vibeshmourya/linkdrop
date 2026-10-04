@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Download Delivery Fix Verification Test
+LinkDrop - Download Delivery Fix Verification Test
 """
 import time
 import requests

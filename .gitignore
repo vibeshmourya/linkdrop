@@ -1,4 +1,4 @@
-# Universal Media Downloader - Git Ignore
+# LinkDrop - Git Ignore
 venv/
 __pycache__/
 *.pyc

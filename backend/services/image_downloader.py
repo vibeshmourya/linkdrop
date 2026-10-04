@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Image Downloader Service
+LinkDrop - Image Downloader Service
 """
 import logging
 from pathlib import Path

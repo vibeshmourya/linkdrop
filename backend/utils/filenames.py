@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Filename & Path Utilities
+LinkDrop - Filename & Path Utilities
 """
 import uuid
 from pathlib import Path

@@ -1,5 +1,5 @@
 """
-Universal Media Downloader - Media Analyzer Service
+LinkDrop - Media Analyzer Service
 """
 import logging
 import requests
