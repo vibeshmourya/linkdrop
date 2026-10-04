@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Media Downloader</title>
+  <meta name="description" content="Download videos, reels, posts, images, audio and other publicly accessible media from supported links.">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <h1 class="brand-title">Universal Media Downloader</h1>
+        <p class="brand-subtitle">Download videos, reels, posts, images, audio and other publicly accessible media from supported links.</p>
+      </div>
+    </header>
+
+    <!-- Main Downloader Container -->
+    <main class="main-container">
+      <!-- Universal Input Section -->
+      <section class="search-section" aria-label="Media URL input">
+        <form id="analyze-form" class="url-form">
+          <div class="input-wrapper">
+            <input 
+              type="url" 
+              id="url-input" 
+              placeholder="Paste a video, audio, image or media URL..." 
+              required 
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="button" id="paste-btn" class="secondary-btn" title="Paste from clipboard">
+              Paste
+            </button>
+            <button type="button" id="clear-btn" class="secondary-btn hidden" title="Clear input">
+              Clear
+            </button>
+          </div>
+          <button type="submit" id="analyze-btn" class="primary-btn">
+            <span class="btn-text">ANALYZE</span>
+            <span class="btn-spinner hidden"></span>
+          </button>
+        </form>
+
+        <!-- Status / Error Notification -->
+        <div id="status-card" class="status-box hidden" role="alert">
+          <p id="status-message"></p>
+        </div>
+      </section>
+
+      <!-- Analysis / Loading State -->
+      <div id="loading-state" class="state-container hidden">
+        <div class="pulse-loader"></div>
+        <p class="loading-label">Inspecting link and detecting available formats...</p>
+      </div>
+
+      <!-- Result Card -->
+      <section id="result-card" class="result-card hidden" aria-label="Detected media details">
+        <div class="result-header">
+          <span id="platform-badge" class="badge">YouTube</span>
+          <span id="media-type-badge" class="type-badge">Video</span>
+        </div>
+
+        <div class="result-body">
+          <!-- Thumbnail preview -->
+          <div class="preview-column">
+            <div class="thumbnail-wrapper">
+              <img id="media-thumbnail" src="" alt="Media thumbnail preview">
+              <span id="media-duration" class="duration-tag hidden">00:00</span>
+            </div>
+          </div>
+
+          <!-- Metadata & Quality Selection -->
+          <div class="details-column">
+            <h2 id="media-title" class="media-title">Media Title</h2>
+
+            <!-- Options Tabs (Video / Audio / Image / Gallery) -->
+            <div id="options-container" class="options-container">
+              <!-- Format Selection Tabs -->
+              <div class="tabs-header" id="format-tabs">
+                <button type="button" class="tab-btn active" data-tab="video" id="tab-video">Video</button>
+                <button type="button" class="tab-btn" data-tab="audio" id="tab-audio">Audio</button>
+                <button type="button" class="tab-btn hidden" data-tab="image" id="tab-image">Image</button>
+              </div>
+
+              <!-- Video Qualities List -->
+              <div id="tab-content-video" class="tab-pane active">
+                <label class="section-label">Select Video Quality</label>
+                <div id="video-qualities-list" class="options-grid">
+                  <!-- Radio pills injected by JS -->
+                </div>
+              </div>
+
+              <!-- Audio Formats List -->
+              <div id="tab-content-audio" class="tab-pane hidden">
+                <label class="section-label">Select Audio Format</label>
+                <div id="audio-formats-list" class="options-grid">
+                  <!-- Radio pills injected by JS -->
+                </div>
+              </div>
+
+              <!-- Image Formats List -->
+              <div id="tab-content-image" class="tab-pane hidden">
+                <label class="section-label">Select Image Format</label>
+                <div id="image-formats-list" class="options-grid">
+                  <!-- Radio pills injected by JS -->
+                </div>
+              </div>
+
+              <!-- Gallery Items / All -->
+              <div id="gallery-container" class="gallery-container hidden">
+                <div class="gallery-info">
+                  <span id="gallery-count">0 items found</span>
+                </div>
+                <div id="gallery-items-grid" class="gallery-items-grid"></div>
+              </div>
+            </div>
+
+            <!-- Download Action Button -->
+            <div class="action-area">
+              <button type="button" id="download-btn" class="primary-btn download-action-btn">
+                <span id="download-btn-text">DOWNLOAD</span>
+                <span id="download-btn-spinner" class="btn-spinner hidden"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Progress Section -->
+        <div id="progress-container" class="progress-section hidden">
+          <div class="progress-meta">
+            <span id="progress-stage" class="progress-stage">Downloading...</span>
+            <span id="progress-percent" class="progress-percent">0%</span>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div id="progress-bar-fill" class="progress-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="progress-details">
+            <span id="progress-speed">0.0 MB/s</span>
+            <span id="progress-size">0 MB / 0 MB</span>
+          </div>
+        </div>
+
+        <!-- File Ready Notification -->
+        <div id="completed-container" class="completed-section hidden">
+          <p class="completed-msg">Your download is ready!</p>
+          <a id="save-file-link" class="primary-btn save-link" href="#" download>
+            Save File to Device
+          </a>
+        </div>
+      </section>
+
+      <!-- Supported Capabilities Section -->
+      <section class="capabilities-section" aria-label="Supported media platforms">
+        <h3 class="capabilities-title">What can you download?</h3>
+        <p class="capabilities-note">Supported sources and publicly accessible media</p>
+
+        <div class="capabilities-grid">
+          <div class="capability-card">
+            <h4>YouTube</h4>
+            <p>Videos &bull; Shorts &bull; Audio &bull; Playlists where supported</p>
+          </div>
+
+          <div class="capability-card">
+            <h4>Instagram</h4>
+            <p>Reels &bull; Videos &bull; Posts &bull; Images &bull; Public media &bull; Stories where publicly accessible</p>
+          </div>
+
+          <div class="capability-card">
+            <h4>Facebook</h4>
+            <p>Videos &bull; Reels &bull; Public posts &bull; Images</p>
+          </div>
+
+          <div class="capability-card">
+            <h4>TikTok</h4>
+            <p>Videos &bull; Public media</p>
+          </div>
+
+          <div class="capability-card">
+            <h4>Twitter / X</h4>
+            <p>Videos &bull; Images &bull; Public media</p>
+          </div>
+
+          <div class="capability-card">
+            <h4>WhatsApp</h4>
+            <p>Publicly accessible media links/status resources where supported</p>
+          </div>
+
+          <div class="capability-card full-width">
+            <h4>Other Sources</h4>
+            <p>Direct video &bull; Audio &bull; Image &bull; Gallery &bull; Direct media files (.mp4, .webm, .mp3, .jpg, .png)</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Universal Media Downloader &mdash; Fast, simple, and direct downloads for public web media.</p>
+      <p class="disclaimer">Only download publicly available media you have permission to access. Does not bypass logins or DRM.</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

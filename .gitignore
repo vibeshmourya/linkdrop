@@ -1,0 +1,12 @@
+# Universal Media Downloader - Git Ignore
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+downloads/
+temp/
+.DS_Store
+Thumbs.db
+*.log
